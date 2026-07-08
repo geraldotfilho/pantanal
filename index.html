@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Expedição MS 2026 · Família Arruda Travassos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --agua:#0e8388; --agua-d:#0a5c60; --agua-l:#4bb3b6;
+  --cerrado:#1f5b3f; --cerrado-d:#123a28;
+  --areia:#f6f2e9; --areia2:#efe7d6; --areia3:#e7dcc4;
+  --barro:#c1440e; --barro-l:#e0764a;
+  --ceu:#5fa8c7; --dourado:#c1912e;
+  --tinta:#26231f; --tinta2:#5c564c; --tinta3:#8b8478;
+  --branco:#fff; --linha:rgba(38,35,31,.10); --linha2:rgba(38,35,31,.06);
+  --sombra:0 1px 2px rgba(38,35,31,.05),0 10px 30px -12px rgba(38,35,31,.18);
+  --sombra-s:0 1px 2px rgba(38,35,31,.06),0 4px 14px -8px rgba(38,35,31,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--areia);color:var(--tinta);line-height:1.55;overflow-x:hidden}
+h1,h2,h3,h4,.disp{font-family:'Bricolage Grotesque','Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.mono{font-family:'Space Mono',monospace}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:940px;margin:0 auto;padding:0 18px}
+.eyebrow{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--cerrado-d)}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.hero .bg::after{content:"";position:absolute;inset:0;background:
+   linear-gradient(180deg,rgba(10,52,45,.35) 0%,rgba(10,52,45,.15) 30%,rgba(9,45,54,.72) 78%,rgba(9,45,54,.95) 100%),
+   radial-gradient(120% 80% at 15% 10%,rgba(14,131,136,.35),transparent 60%)}
+.hero .inner{position:relative;z-index:1;padding:26px 18px 30px;max-width:940px;margin:0 auto}
+.brandrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:#7ee0c3;box-shadow:0 0 0 3px rgba(126,224,195,.25)}
+.hero h1{font-size:clamp(34px,8vw,60px);margin:16px 0 8px;text-shadow:0 2px 24px rgba(0,0,0,.28)}
+.hero h1 span{color:#8fe6d0}
+.hero .sub{max-width:560px;font-size:15px;color:rgba(255,255,255,.9);font-weight:500}
+.crew{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.crew .m{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:9px 13px;min-width:0}
+.crew .m b{display:block;font-family:'Bricolage Grotesque';font-size:14px;font-weight:700}
+.crew .m small{font-size:11px;color:rgba(255,255,255,.72)}
+.factbar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16);border-radius:16px;overflow:hidden;margin-top:20px}
+.factbar div{background:rgba(11,58,40,.34);padding:12px 10px;text-align:center;backdrop-filter:blur(4px)}
+.factbar .k{font-family:'Bricolage Grotesque';font-size:19px;font-weight:800;line-height:1}
+.factbar .l{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-top:5px}
+
+/* ---------- NAV ---------- */
+nav.tabs{position:sticky;top:0;z-index:50;background:rgba(246,242,233,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--linha)}
+nav.tabs .row{display:flex;gap:4px;max-width:940px;margin:0 auto;padding:6px 12px;overflow-x:auto;scrollbar-width:none}
+nav.tabs .row::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;display:flex;align-items:center;gap:8px;border:0;background:transparent;color:var(--tinta2);font-family:'Plus Jakarta Sans';font-weight:700;font-size:13.5px;padding:10px 14px;border-radius:11px;cursor:pointer;transition:.18s;white-space:nowrap}
+.tab .ic{font-size:16px}
+.tab:hover{color:var(--tinta);background:rgba(38,35,31,.05)}
+.tab.on{color:#fff;background:var(--agua);box-shadow:var(--sombra-s)}
+
+/* ---------- GENERIC ---------- */
+main{padding:26px 0 60px}
+.pane{display:none;animation:fade .35s ease}
+.pane.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sec-h{margin:6px 0 18px}
+.sec-h .eyebrow{color:var(--agua-d)}
+.sec-h h2{font-size:clamp(24px,5vw,32px);margin-top:6px}
+.sec-h p{color:var(--tinta2);font-size:14.5px;margin-top:6px;max-width:640px}
+.card{background:var(--branco);border:1px solid var(--linha);border-radius:20px;box-shadow:var(--sombra-s)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:760px){.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.factbar{grid-template-columns:repeat(2,1fr)}}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.02em}
+.b-ok{background:#e2f3ec;color:#1c6b4c}
+.b-wait{background:#fbeede;color:#9a5410}
+.b-info{background:#e2eff5;color:#1f6a89}
+.b-blue{background:#e7edfb;color:#33499b}
+
+/* logistics cards */
+.logi{padding:20px}
+.logi .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px}
+.logi .lab{font-family:'Space Mono';font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cerrado)}
+.logi p{font-size:13px;color:var(--tinta2);margin:3px 0}
+.logi .em{color:var(--tinta);font-weight:600}
+.logi .foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--linha2);display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--tinta3);flex-wrap:wrap}
+.logi .foot b{color:var(--tinta)}
+.hlist{list-style:none;font-size:13px;color:var(--tinta2);display:flex;flex-direction:column;gap:7px}
+.hlist b{color:var(--tinta)}
+
+/* ---------- RIVER TIMELINE ---------- */
+.river{position:relative;margin-top:22px}
+.river::before{content:"";position:absolute;left:22px;top:14px;bottom:14px;width:3px;border-radius:3px;
+  background:linear-gradient(180deg,var(--agua-l),var(--agua) 30%,var(--cerrado) 78%,var(--barro));opacity:.55}
+@media(max-width:760px){.river::before{left:16px}}
+.day{position:relative;padding-left:56px;margin-bottom:16px}
+@media(max-width:760px){.day{padding-left:44px}}
+.node{position:absolute;left:6px;top:16px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:15px;color:#fff;box-shadow:0 4px 10px -3px rgba(0,0,0,.3);z-index:2}
+@media(max-width:760px){.node{left:0;width:32px;height:32px}}
+.day-head{background:var(--branco);border:1px solid var(--linha);border-radius:18px;box-shadow:var(--sombra-s);cursor:pointer;transition:.2s;overflow:hidden}
+.day-head:hover{box-shadow:var(--sombra);transform:translateY(-1px)}
+.day.feat .day-head{border-color:rgba(14,131,136,.4);box-shadow:0 0 0 1px rgba(14,131,136,.15),var(--sombra-s)}
+.dh-top{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.dh-top .txt{flex:1;min-width:0}
+.dh-top .dt{font-family:'Space Mono';font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--agua-d);text-transform:uppercase}
+.dh-top h3{font-size:16px;margin:2px 0 3px;color:var(--tinta)}
+.dh-top .rez{font-size:12px;color:var(--tinta2)}
+.chev{flex:0 0 auto;color:var(--tinta3);transition:.25s}
+.day.open .chev{transform:rotate(180deg)}
+.day-body{display:none;border-top:1px solid var(--linha2)}
+.day.open .day-body{display:block}
+.photo{position:relative;aspect-ratio:16/7;background:linear-gradient(120deg,var(--agua),var(--cerrado));overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .cap{position:absolute;left:12px;bottom:10px;right:12px;color:#fff;font-size:11.5px;font-weight:600;text-shadow:0 1px 6px rgba(0,0,0,.6);display:flex;justify-content:space-between;gap:8px;align-items:flex-end}
+.photo .illus{background:rgba(0,0,0,.4);border-radius:6px;padding:2px 7px;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.photo.noimg img{display:none}
+.photo.noimg{display:grid;place-items:center}
+.photo.noimg .emoji{font-size:44px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25))}
+.db-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;padding:18px 16px}
+@media(max-width:760px){.db-grid{grid-template-columns:1fr}}
+.prog h4{font-size:13px;color:var(--cerrado);border-bottom:1px solid var(--linha);padding-bottom:7px;margin-bottom:10px;letter-spacing:.01em}
+.prog ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.prog li{font-size:13px;color:var(--tinta2);padding-left:16px;position:relative}
+.prog li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--agua-l)}
+.prog li b{color:var(--tinta)}
+.side{background:var(--areia);border:1px solid var(--linha2);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:13px;height:fit-content}
+.side .blk h5{font-family:'Space Mono';font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta3);margin-bottom:6px}
+.side .blk p{font-size:12px;color:var(--tinta2);margin:3px 0}
+.side .blk p b{color:var(--tinta)}
+.tip{border-radius:12px;padding:11px 12px;font-size:12px}
+.tip.warn{background:#fbe7de;color:#8a3d10}
+.tip.eco{background:#e6f4ec;color:#1c6b4c}
+.tip.cold{background:#e5eff6;color:#1e5f81}
+.tip b{font-weight:700}
+
+/* route ribbon */
+.route{display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:var(--areia2);border:1px dashed rgba(38,35,31,.18);border-radius:12px;padding:10px 12px;margin:2px 0 2px}
+.route .stop{font-size:11.5px;font-weight:700;color:var(--tinta);background:#fff;border:1px solid var(--linha);border-radius:8px;padding:4px 9px;white-space:nowrap}
+.route .arr{color:var(--agua);font-weight:800}
+.route .mapbtn{margin-left:auto;font-size:11px;font-weight:700;color:#fff;background:var(--agua);border-radius:8px;padding:5px 11px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.route .mapbtn:hover{background:var(--agua-d)}
+.route .km{font-size:10.5px;color:var(--tinta3);font-family:'Space Mono';width:100%;margin-top:2px}
+
+/* ---------- COSTS ---------- */
+.money-hero{display:grid;grid-template-columns:1.1fr 1fr 1.2fr;gap:14px}
+@media(max-width:760px){.money-hero{grid-template-columns:1fr}}
+.mcard{padding:18px}
+.mcard .k{font-family:'Space Mono';font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta3)}
+.mcard .big{font-family:'Bricolage Grotesque';font-size:30px;font-weight:800;margin-top:8px}
+.mcard .cap{font-size:12px;color:var(--tinta2);margin-top:6px}
+.split-row{display:flex;justify-content:space-between;font-size:13.5px;padding:5px 0}
+.split-row b{font-family:'Space Mono';font-weight:700}
+.settle{background:linear-gradient(135deg,#e9f6ee,#e2f1f2);border-color:rgba(14,131,136,.25)}
+.settle .arrow{font-family:'Bricolage Grotesque';font-size:22px;font-weight:800;color:var(--agua-d);margin:8px 0 2px}
+.settle .amt{font-family:'Bricolage Grotesque';font-size:26px;font-weight:800;color:var(--cerrado)}
+.table-wrap{overflow-x:auto;margin-top:16px;border:1px solid var(--linha);border-radius:16px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+thead th{text-align:left;font-family:'Space Mono';font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta3);padding:12px 14px;background:var(--areia);border-bottom:1px solid var(--linha)}
+tbody td{padding:11px 14px;border-bottom:1px solid var(--linha2);color:var(--tinta2);vertical-align:middle}
+tbody tr:last-child td{border-bottom:0}
+td .who{font-size:11px;color:var(--tinta3)}
+td.val{font-family:'Space Mono';font-weight:700;color:var(--tinta);white-space:nowrap}
+.mini{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px}
+.grp-g{background:#e2f0f4;color:#1f6a89}.grp-b{background:#f3e8de;color:#9a5410}.grp-s{background:#eae6dc;color:#6a6456}
+.transfer-note{background:var(--areia2);border:1px solid var(--linha);border-radius:14px;padding:14px 16px;margin-top:14px;font-size:13px;color:var(--tinta2)}
+.transfer-note b{color:var(--tinta)}
+
+/* ---------- PREP / TASKS ---------- */
+.alert-strip{background:linear-gradient(135deg,#fbe9df,#f7ddd0);border:1px solid rgba(193,68,14,.25);border-radius:18px;padding:18px}
+.alert-strip h3{font-size:17px;color:var(--barro);display:flex;align-items:center;gap:8px}
+.alert-strip ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:9px}
+.alert-strip li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#7a3810}
+.alert-strip li .cd{flex:0 0 auto;font-family:'Space Mono';font-size:11px;font-weight:700;background:#fff;border:1px solid rgba(193,68,14,.3);color:var(--barro);border-radius:7px;padding:3px 8px;min-width:66px;text-align:center}
+.tcol h3{font-size:14px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--linha);margin-bottom:12px}
+.tcol h3 .cdot{width:9px;height:9px;border-radius:50%}
+.titem{display:flex;gap:10px;align-items:flex-start;font-size:13px;padding:8px 0;color:var(--tinta2)}
+.titem .st{flex:0 0 auto;margin-top:1px}
+.titem.done{color:var(--tinta3)}
+.titem.done .txt{text-decoration:line-through}
+.tick{width:18px;height:18px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:800}
+.tick.y{background:#dff0e7;color:#1c6b4c}
+.tick.n{background:#fff;border:1.5px solid var(--linha);color:transparent}
+
+/* ---------- MALAS ---------- */
+.seg{display:inline-flex;gap:4px;background:var(--areia2);border:1px solid var(--linha);border-radius:12px;padding:4px;margin-bottom:8px}
+.seg button{border:0;background:transparent;font-family:'Plus Jakarta Sans';font-weight:700;font-size:13px;color:var(--tinta2);padding:8px 14px;border-radius:9px;cursor:pointer}
+.seg button.on{background:#fff;color:var(--agua-d);box-shadow:var(--sombra-s)}
+.pcat{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;box-shadow:var(--sombra-s)}
+.pcat h4{font-size:14px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--linha);margin-bottom:11px}
+.pitem{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:13px;padding:7px 0;border-bottom:1px dashed var(--linha2);color:var(--tinta2)}
+.pitem:last-child{border-bottom:0}
+.pitem .q{flex:0 0 auto;font-family:'Space Mono';font-size:10.5px;font-weight:700;background:var(--areia);color:var(--tinta2);border-radius:6px;padding:2px 8px}
+
+/* health */
+.hcard{padding:18px}
+.hcard .who{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.hcard .av{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:19px;flex:0 0 auto}
+.hcard .who b{font-family:'Bricolage Grotesque';font-size:16px}
+.hcard .who small{color:var(--tinta3);font-size:12px}
+.hcard ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.hcard li{font-size:12.5px;color:var(--tinta2);padding-left:16px;position:relative}
+.hcard li::before{content:"›";position:absolute;left:0;top:0;color:var(--agua);font-weight:800}
+.disclaimer{font-size:11.5px;color:var(--tinta3);background:var(--areia2);border:1px solid var(--linha);border-radius:12px;padding:12px 14px;margin-top:14px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(15,20,18,.9);z-index:100;display:none;place-items:center;padding:20px;cursor:zoom-out}
+.lb.on{display:grid}
+.lb img{max-width:100%;max-height:86vh;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+.lb .cap{color:#fff;font-size:12px;margin-top:12px;text-align:center;opacity:.8}
+
+footer{border-top:1px solid var(--linha);padding:26px 18px 40px;text-align:center;color:var(--tinta3);font-size:12px}
+footer b{color:var(--tinta2)}
+.heart{color:var(--barro)}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="bg">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rio_Sucuri_-_Bonito_(MS).JPG?width=1600" alt="Águas cristalinas do Rio Sucuri, Bonito MS" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+  </div>
+  <div class="inner">
+    <div class="brandrow">
+      <span class="pill"><span class="dot"></span> 17 – 24 de Julho, 2026</span>
+      <span class="pill">🐆 Bonito &amp; Pantanal · MS</span>
+    </div>
+    <h1>Expedição <span>Mato Grosso do&nbsp;Sul</span></h1>
+    <p class="sub">O roteiro completo da família — dia a dia, custos divididos, preparativos e malas. Tudo em um lugar só, pra ninguém se perder. 💙</p>
+
+    <div class="crew">
+      <div class="m"><b>Gera</b><small>37 anos · piloto da expedição</small></div>
+      <div class="m"><b>Rafa</b><small>36 anos · co-pilota da expedição 🗺️</small></div>
+      <div class="m"><b>Ben</b><small>5 anos · explorador-mor 🧭</small></div>
+      <div class="m"><b>Beta</b><small>62 anos · a "melhor idade"</small></div>
+    </div>
+
+    <div class="factbar">
+      <div><div class="k">8</div><div class="l">Dias</div></div>
+      <div><div class="k">7</div><div class="l">Noites</div></div>
+      <div><div class="k">9</div><div class="l">Passeios</div></div>
+      <div><div class="k">4</div><div class="l">Hotéis</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== NAV ===================== -->
+<nav class="tabs">
+  <div class="row">
+    <button class="tab on" data-tab="roteiro"><span class="ic">🗺️</span> Roteiro</button>
+    <button class="tab" data-tab="custos"><span class="ic">💰</span> Custos</button>
+    <button class="tab" data-tab="prep"><span class="ic">✅</span> Preparativos</button>
+    <button class="tab" data-tab="malas"><span class="ic">🎒</span> Malas</button>
+    <button class="tab" data-tab="saude"><span class="ic">🩺</span> Saúde &amp; Dicas</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ==================================================== ROTEIRO ==================================================== -->
+<section class="pane on" id="pane-roteiro">
+  <div class="sec-h">
+    <div class="eyebrow">O caminho das águas</div>
+    <h2>Roteiro completo, dia a dia</h2>
+    <p>Toque em cada dia para abrir os horários, hospedagem, refeições e as dicas de ouro. A linha que desce é o nosso rio: começa em Campo Grande, corre por Bonito e deságua no Pantanal.</p>
+  </div>
+
+  <!-- logistics quick cards -->
+  <div class="grid3">
+    <div class="card logi">
+      <div class="top"><span class="lab">✈️ Voos LATAM</span><span class="badge b-ok">Emitido</span></div>
+      <p class="em">Ida · 17/07 — LA 3171 / LA 9138</p>
+      <p>Recife 16:10 → São Paulo → Campo Grande 21:55</p>
+      <p class="em" style="margin-top:8px">Volta · 24/07 — LA 3177 / LA 3414</p>
+      <p>Campo Grande 09:55 → São Paulo → Recife 23:45</p>
+      <div class="foot"><span>Reserva <b class="mono">GCTOGR</b></span><span>Bagagem <b>só de mão</b></span></div>
+    </div>
+    <div class="card logi">
+      <div class="top"><span class="lab">🚗 Carro &amp; cadeirinha</span><span class="badge b-ok">Confirmado</span></div>
+      <p class="em">SUV automático · Localiza FAST</p>
+      <p>Retirada digital pelo app às 23h — direto na vaga, sem fila.</p>
+      <p class="em" style="margin-top:6px">👶 Cadeirinha Fisher-Price (Amor de Mãe)</p>
+      <p>Entregue e recolhida no próprio pátio da Localiza.</p>
+      <div class="foot"><span>Carro <b class="mono">IT9LT4R95XAL</b></span><span>7 diárias + seguros</span></div>
+    </div>
+    <div class="card logi">
+      <div class="top"><span class="lab">🏨 Hospedagens</span><span class="badge b-info">4 reservas</span></div>
+      <ul class="hlist">
+        <li>🏙️ <b>17/07</b> · Brumado — Campo Grande</li>
+        <li>🎨 <b>18–21/07</b> · Pousada Galeria Artes — Bonito</li>
+        <li>🐊 <b>21–23/07</b> · Pantanal Hotel — Miranda</li>
+        <li>🏙️ <b>23/07</b> · Brumado — Campo Grande</li>
+      </ul>
+      <div class="foot"><span>Café da manhã <b>incluso</b></span><span>2 quartos por hotel</span></div>
+    </div>
+  </div>
+
+  <!-- RIVER -->
+  <div class="river" id="river"></div>
+</section>
+
+<!-- ==================================================== CUSTOS ==================================================== -->
+<section class="pane" id="pane-custos">
+  <div class="sec-h">
+    <div class="eyebrow">Contas transparentes</div>
+    <h2>Custos &amp; divisão dos dois grupos</h2>
+    <p>O grupo <b>Gera / Rafa / Ben</b> paga 3 cotas; o grupo <b>Beta</b> paga 1. Passeios, quando divididos, seguem 3:1. Carro e Bioparque são 50/50. O acerto final é a Beta reembolsando o que a Gera adiantou.</p>
+  </div>
+
+  <div class="money-hero">
+    <div class="card mcard">
+      <div class="k">Investimento total</div>
+      <div class="big" id="c-total">—</div>
+      <div class="cap" id="c-total-cap">—</div>
+    </div>
+    <div class="card mcard">
+      <div class="k">Cota final de cada grupo</div>
+      <div class="split-row" style="margin-top:10px"><span>👨‍👩‍👦 Gera / Rafa / Ben</span><b id="c-gera">—</b></div>
+      <div class="split-row"><span>👵 Beta</span><b id="c-beta">—</b></div>
+      <div class="cap">Já contando hotéis, passeios, carro e cadeirinha.</div>
+    </div>
+    <div class="card mcard settle">
+      <div class="k">Acerto final</div>
+      <div class="arrow">Beta → Gera</div>
+      <div class="split-row" style="border-top:1px solid var(--linha);margin-top:6px;padding-top:8px"><span>Já transferido</span><b id="c-transf">—</b></div>
+      <div class="split-row"><span>Falta acertar</span><b class="amt" id="c-falta">—</b></div>
+    </div>
+  </div>
+
+  <div class="transfer-note" id="c-story">—</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Valor</th><th>Quem pagou</th><th>Divisão</th></tr></thead>
+      <tbody id="cost-body"></tbody>
+    </table>
+  </div>
+  <p style="font-size:11.5px;color:var(--tinta3);margin-top:10px">Precisa mudar algum valor? É só me pedir que eu atualizo os números e o acerto recalcula sozinho.</p>
+</section>
+
+<!-- ==================================================== PREPARATIVOS ==================================================== -->
+<section class="pane" id="pane-prep">
+  <div class="sec-h">
+    <div class="eyebrow">Nada pode escapar</div>
+    <h2>Preparativos &amp; prazos</h2>
+    <p>O que já está resolvido e o que ainda precisa de atenção antes de embarcar.</p>
+  </div>
+
+  <div class="alert-strip" style="margin-bottom:18px">
+    <h3>⏰ Atenção aos prazos!</h3>
+    <ul id="alert-list"></ul>
+  </div>
+
+  <div class="grid2" id="task-cols"></div>
+</section>
+
+<!-- ==================================================== MALAS ==================================================== -->
+<section class="pane" id="pane-malas">
+  <div class="sec-h">
+    <div class="eyebrow">Inverno seco no cerrado</div>
+    <h2>Guia de malas</h2>
+    <p>Julho no MS é o combo <b>manhã gelada + tarde de sol + água a 22°C</b>. A mala precisa dar conta de trilha, flutuação e do friozinho da madrugada (a tal da "friagem"). Aqui vai o essencial, calibrado pra cada grupo.</p>
+  </div>
+  <div class="seg" id="mala-seg">
+    <button class="on" data-g="gera">Gera, Rafa &amp; Ben</button>
+    <button data-g="beta">Beta</button>
+  </div>
+  <div class="grid2" id="mala-body"></div>
+</section>
+
+<!-- ==================================================== SAÚDE ==================================================== -->
+<section class="pane" id="pane-saude">
+  <div class="sec-h">
+    <div class="eyebrow">Viagem tranquila é viagem segura</div>
+    <h2>Saúde &amp; dicas da família</h2>
+    <p>Cuidados pensados para o grupo — com carinho especial pro Ben e pra Beta, e dicas que valem pra todo mundo.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card hcard">
+      <div class="who"><span class="av" style="background:#e7f0fb">🧒</span><div><b>Ben — 5 anos</b><br><small>o explorador do grupo</small></div></div>
+      <ul>
+        <li>Colete salva-vidas em toda atividade na água (as fazendas fornecem) e um adulto sempre ao lado.</li>
+        <li>Protetor solar infantil <b>fora da água</b> (na flutuação é proibido) + boné e óculos escuros.</li>
+        <li>Farmacinha infantil: antitérmico, antialérgico, curativos e o termômetro.</li>
+        <li>Lanchinhos, água e brinquedo/joguinho pros trechos longos de carro (Nioaque, Miranda, Salobra).</li>
+        <li>Nos safáris e no Buraco das Araras, mantê-lo perto e calçado fechado — nada de correr perto das bordas e da fauna.</li>
+      </ul>
+    </div>
+
+    <div class="card hcard">
+      <div class="who"><span class="av" style="background:#eef1e6">👵</span><div><b>Beta — 62 anos</b><br><small>trilhas leves e muito verde</small></div></div>
+      <ul>
+        <li>Um checkup rápido / liberação do médico pra trilhas e flutuação deixa tudo mais leve.</li>
+        <li>Tênis firme e antiderrapante: a trilha do Buraco das Araras tem ~920 m e a do Salobra ~1 km.</li>
+        <li>Manhãs de safári e do Salobra são <b>frias</b> — casaco, echarpe e touca na mochila.</li>
+        <li>Remédios de uso contínuo na bagagem de mão, em quantidade folgada e na embalagem original.</li>
+        <li>Hidratação e ritmo tranquilo: dá pra ver tudo sem pressa.</li>
+      </ul>
+    </div>
+
+    <div class="card hcard">
+      <div class="who"><span class="av" style="background:#e6f4ef">🌿</span><div><b>Todo mundo</b><br><small>regras de ouro do ecoturismo</small></div></div>
+      <ul>
+        <li><b>Nada de protetor/repelente na água cristalina</b> — protege os peixes. Use camiseta UV de manga longa na flutuação.</li>
+        <li>Documento oficial com foto pra todos (inclusive o Ben) em <b>todos</b> os passeios.</li>
+        <li>Retire os vouchers na Ygarapé ao chegar em Bonito (18/07).</li>
+        <li>Estrada só com Google Maps (o Waze falha na região). Tanque cheio antes dos trechos longos.</li>
+        <li>Capinha à prova d'água pro celular = fotos incríveis embaixo d'água.</li>
+        <li>Guarde as malas no estacionamento fechado do Shopping Campo Grande no dia do Bioparque.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="disclaimer">💡 As orientações de saúde aqui são gerais e não substituem a avaliação médica. Na dúvida sobre qualquer atividade ou repelente, vale confirmar com um médico antes da viagem.</div>
+</section>
+
+</main>
+
+<div class="lb" id="lb"><div><img id="lb-img" src="" alt=""><div class="cap" id="lb-cap"></div></div></div>
+
+<footer>
+  <p>Expedição Mato Grosso do Sul · Julho 2026</p>
+  <p style="margin-top:4px">Feito com <span class="heart">♥</span> para a <b>Família Arruda Travassos</b> — página de uso pessoal/familiar.</p>
+</footer>
+
+<script>
+/* ---------- IMAGES (Wikimedia Commons, Special:FilePath) ---------- */
+var IMG = function(file,w){return "https://commons.wikimedia.org/wiki/Special:FilePath/"+file+"?width="+(w||1200);};
+var PIC = {
+  sucuri:  IMG("Rio_Sucuri_-_Bonito_(MS).JPG",1400),
+  sucuri2: IMG("Rio_Sucuri_Bonito_MS_2.jpg",1200),
+  sucuri3: IMG("Rio_Sucuri_Bonito_MS_3.jpg",1200),
+  araras:  IMG("Buraco_das_Araras_Jardim_MS_Brazil.jpg",1400),
+  gruta:   IMG("Gruta_do_Lago_Azul_-_Bonito%2C_MS.JPG",1200),
+  araraAzul:IMG("Arara_Azul_no_Pantanal.jpg",1300),
+  capivara:IMG("Capivara_Pantanal.jpg",1200),
+  jacare:  IMG("Jacar%C3%A9_Pantanal_1.jpg",1200)
+};
+
+/* ---------- ROTEIRO DATA ---------- */
+var DAYS = [
+ {n:17,dow:"Sexta",feat:false,color:"var(--tinta)",
+  title:"Chegada, SUV e cadeirinha no aeroporto",
+  rez:"Pouso 21:55 → Localiza FAST → Brumado CG",
+  stay:"Brumado · Campo Grande",
+  photo:null,emoji:"🛬",cap:"Chegada a Campo Grande",
+  route:{stops:["Aeroporto CGR","Brumado Hotel"],km:"~15 min · 8 km",gmap:"https://www.google.com/maps/dir/?api=1&origin=Aeroporto+Internacional+de+Campo+Grande&destination=Brumado+Hotel+Campo+Grande+MS&travelmode=driving"},
+  prog:[
+   ["16:10","Embarque em Recife rumo a Campo Grande (conexão rápida em Congonhas)."],
+   ["21:55","Pouso no Aeroporto de Campo Grande (CGR)."],
+   ["23:00","<b>Retirada FAST digital (Localiza):</b> a Rafa libera o SUV pelo app (<span class='mono'>IT9LT4R95XAL</span>) e vai direto pra vaga."],
+   ["23:15","<b>Cadeirinha BB724:</b> encontro com o entregador da Amor de Mãe no pátio da Localiza pra receber e instalar a Fisher-Price higienizada."],
+   ["23:35","Trajeto de 15 min até o hotel."],
+   ["23:50","Check-in tardio no <b>Brumado Hotel</b> (conf. 6922411600 · PIN 6767). Estacionamento gratuito."]
+  ],
+  stayBlk:[["🛌 Quarto 1 (triplo luxo)","Gera, Rafa e Ben — R$ 288,58 (no balcão)"],["🛌 Quarto 2 (duplo)","Beta — R$ 239,79 (no balcão)"]],
+  meals:[["☕ Café da manhã","Incluso no hotel"]],
+  tip:{cls:"eco",html:"<b>Conforto do Ben:</b> a cadeirinha da Amor de Mãe é bem mais ergonômica e limpa que o padrão de locadora — faz diferença nos trechos longos de asfalto."}
+ },
+
+ {n:18,dow:"Sábado",feat:true,color:"var(--cerrado)",badge:"Dia cheio",
+  title:"Bioparque, estrada e Buraco das Araras",
+  rez:"Bioparque 08:30 → almoço em Sidrolândia → Araras 15:40 → Bonito",
+  stay:"Pousada Galeria Artes · Bonito",
+  photo:PIC.araras,emoji:"🦜",cap:"Buraco das Araras — Jardim/MS",illus:false,
+  route:{stops:["Campo Grande","Sidrolândia","Nioaque","Guia Lopes","Jardim (Araras)","Bonito"],km:"dia inteiro na estrada · asfalto bom",gmap:"https://www.google.com/maps/dir/?api=1&origin=Campo+Grande,MS&destination=Bonito,MS&waypoints=Sidrolandia,MS|Buraco+das+Araras,Jardim,MS&travelmode=driving"},
+  prog:[
+   ["07:30","<b>Check-out do Brumado</b> com todas as malas guardadas no carro. Cada quarto acerta a diária na recepção."],
+   ["08:00","<b>Estacionamento seguro:</b> deixar o carro carregado no estacionamento fechado do <b>Shopping Campo Grande</b> (monitorado, a 1,2 km do aquário)."],
+   ["08:30","<b>Bioparque Pantanal:</b> maior aquário de água doce do mundo, entrada gratuita reservada (<span class='mono'>LB29654914</span>). O Ben vai amar os jacarés e os peixes gigantes nos túneis de vidro."],
+   ["11:15","Retorno ao carro. Configurar o <b>Google Maps</b> (Waze falha) rumo a Sidrolândia."],
+   ["12:30","<b>Almoço de estrada</b> na tradicional Churrascaria Ganso (anexa a um posto em Sidrolândia)."],
+   ["13:30","Seguir por Nioaque → Guia Lopes da Laguna → Jardim → entrada do Buraco das Araras."],
+   ["15:30","<b>Chegada ao Buraco das Araras.</b> Atenção ao calçado: sapato fechado obrigatório na trilha (calce antes de descer do carro)."],
+   ["15:40","Caminhada leve de ~920 m ao redor da dolina, com dezenas de araras-vermelhas voando."],
+   ["17:00","Reta final rumo a Bonito pela rota do aeroporto."],
+   ["18:30","Check-in na <b>Pousada Galeria Artes</b> e jantar leve no centro."]
+  ],
+  stayBlk:[["🛌 Quarto 1 (superior)","Gera / Rafa / Ben — R$ 1.455,30 (no balcão)"],["🛌 Quarto 2 (duplo)","Beta — R$ 1.212,30 (no balcão)"]],
+  meals:[["☕ Café","Incluso no Brumado CG"],["🍖 Almoço","Churrascaria Ganso (livre)"],["🍽️ Jantar","Centro de Bonito (livre)"]],
+  tip:{cls:"warn",html:"<b>Bagagem blindada:</b> use o estacionamento fechado do shopping pra proteger as malas. Nunca deixe o porta-malas cheio em estacionamento aberto na rua."}
+ },
+
+ {n:19,dow:"Domingo",feat:false,color:"var(--agua)",
+  title:"Flutuação no Rio Sucuri e Bio Park",
+  rez:"Rio Sucuri 10:00 → Bio Park 16:30",
+  stay:"Pousada Galeria Artes · Bonito",
+  photo:PIC.sucuri,emoji:"🐟",cap:"Rio Sucuri — um dos mais cristalinos do mundo",illus:false,
+  prog:[
+   ["09:00","Saída da pousada rumo à fazenda do Rio Sucuri."],
+   ["10:00","<b>Flutuação no Rio Sucuri:</b> treino na piscina e depois flutuação em água absurdamente cristalina. O Ben vai de colete, com barco de apoio o tempo todo."],
+   ["12:30","Almoço opcional na sede do Rio Sucuri."],
+   ["16:00","Saída para o Bio Park Bonito."],
+   ["16:30","<b>Bio Park:</b> centro de abrigo e reabilitação de animais silvestres (tamanduás, lobos, aves). Pode ir de chinelo, tranquilo."]
+  ],
+  stayBlk:[["🛌 Mesmos quartos","Pousada Galeria Artes (3ª noite)"]],
+  meals:[["☕ Café","Incluso na pousada"],["🍔 Almoço","Sede do Sucuri (não incluso)"],["🍽️ Jantar","Livre"]],
+  tip:{cls:"eco",html:"<b>Regra ecológica:</b> na flutuação é <b>proibido</b> protetor solar e repelente (protege a fauna). Usem camiseta UV de manga longa."}
+ },
+
+ {n:20,dow:"Segunda",feat:false,color:"var(--agua)",
+  title:"Cachoeiras e almoço de fazenda na Ceita Corê",
+  rez:"Fazenda Ceita Corê · passeio 08:30",
+  stay:"Pousada Galeria Artes · Bonito",
+  photo:PIC.sucuri3,emoji:"💦",cap:"Águas cristalinas da região de Bonito",illus:true,
+  prog:[
+   ["07:30","Saída rumo à Fazenda Ceita Corê."],
+   ["08:30","<b>Trilha + cachoeiras:</b> caminhada guiada com paradas para banho em cachoeiras paradisíacas e passarelas suspensas. Fornecem sapatilha aquática!"],
+   ["Meio-dia","Retorno à sede para um <b>fabuloso almoço pantaneiro</b> em fogão a lenha (já incluso)."],
+   ["Tarde","Nascente do Rio Chapeninha, redários e canoagem livre no lago da fazenda."]
+  ],
+  stayBlk:[["🛌 Mesmos quartos","Pousada Galeria Artes (última noite em Bonito)"]],
+  meals:[["☕ Café","Incluso na pousada"],["🍽️ Almoço de fazenda","Incluso no passeio!"],["🍽️ Jantar","Livre no centro (última noite)"]],
+  tip:{cls:"warn",html:"<b>O que calçar:</b> leve sapatilha de neoprene ou um tênis extra que possa molhar nas cachoeiras."}
+ },
+
+ {n:21,dow:"Terça",feat:true,color:"var(--agua)",badge:"Travessia",
+  title:"Nascente Azul e travessia para Miranda",
+  rez:"Nascente Azul 08:20 → estrada → Pantanal Hotel",
+  stay:"Pantanal Hotel · Miranda",
+  photo:PIC.sucuri2,emoji:"🩵",cap:"Flutuação nas águas turquesa de Bonito",illus:true,
+  route:{stops:["Bonito","Miranda"],km:"~130 km · ~1h45 · asfalto bom",gmap:"https://www.google.com/maps/dir/?api=1&origin=Bonito,MS&destination=Miranda,MS&travelmode=driving"},
+  prog:[
+   ["07:20","<b>Check-out da Pousada Galeria Artes</b> com malas no carro. Cada quarto acerta o balcão."],
+   ["08:20","<b>Nascente Azul (flutuação + balneário):</b> trilha leve e flutuação tranquila. Fornecem sapatilha de neoprene. Inclui balneário com tirolesa aquática e circuito de aventura."],
+   ["12:30","Almoço buffet de fazenda incluso na Nascente Azul."],
+   ["14:30","Partida rumo a Miranda, portal do Pantanal Sul (~130 km, ~1h45)."],
+   ["16:30","Check-in no <b>Pantanal Hotel</b> (conf. 5832346158 · PIN 6647), centro de Miranda. Vaga e internet inclusas. Resto do dia na piscina."]
+  ],
+  stayBlk:[["🛌 Quarto 1 (triplo)","Gera / Rafa / Ben — R$ 740,00 (no balcão)"],["🛌 Quarto 2 (duplo)","Beta — R$ 480,00 (no balcão)"]],
+  meals:[["☕ Café","Incluso na pousada"],["🍽️ Almoço","Incluso na Nascente Azul!"],["🍽️ Jantar","Livre em Miranda"]],
+  tip:{cls:"eco",html:"<b>Dica:</b> a água da nascente é cristalina, porém fria (~22°C) — entradas curtas e camiseta térmica por baixo do neoprene ajudam bastante. O balneário tem tirolesa aquática e circuito de aventura pra quem quiser se jogar. 💙"}
+ },
+
+ {n:22,dow:"Quarta",feat:false,color:"var(--cerrado)",
+  title:"Dia de safári no Pantanal",
+  rez:"Fazenda San Francisco · day use · 08:00",
+  stay:"Pantanal Hotel · Miranda",
+  photo:PIC.araraAzul,emoji:"🦜",cap:"Arara-azul, símbolo do Pantanal",illus:false,
+  gallery:[PIC.capivara,PIC.jacare],
+  prog:[
+   ["05:00","Despertar cedo e deslocamento até a Fazenda San Francisco."],
+   ["08:00","<b>Safári fotográfico:</b> veículo aberto pra avistar jacarés, veados, capivaras e aves. Fantástico pro Ben!"],
+   ["Meio-dia","Almoço pantaneiro autêntico incluso na fazenda."],
+   ["14:00","<b>Passeio de chalana</b> pelo Rio Corixo São Francisco, com pescaria de piranha e observação de jacarés."],
+   ["17:00","Retorno pra descansar no Pantanal Hotel."]
+  ],
+  stayBlk:[["🛌 Mesmos quartos","Pantanal Hotel (2ª noite)"]],
+  meals:[["☕ Café","Incluso no hotel"],["🍽️ Almoço regional","Incluso no day use!"],["🍽️ Jantar","Livre"]],
+  tip:{cls:"cold",html:"<b>Vestir:</b> calça comprida leve e tênis fechado, cores claras. Repelente forte e boné. Casaco na mochila — a manhã de safári pode vir com friagem."}
+ },
+
+ {n:23,dow:"Quinta",feat:true,color:"var(--cerrado)",badge:"Encontro das águas",
+  title:"Projeto Salobra e retorno à capital",
+  rez:"Salobra 07:45 → Campo Grande → Brumado CG",
+  stay:"Brumado · Campo Grande",
+  photo:PIC.jacare,emoji:"🐊",cap:"Jacaré-do-pantanal no encontro das águas",illus:false,
+  route:{stops:["Miranda","Campo Grande"],km:"~200 km · ~2h30",gmap:"https://www.google.com/maps/dir/?api=1&origin=Projeto+Salobra,Miranda,MS&destination=Campo+Grande,MS&travelmode=driving"},
+  prog:[
+   ["07:00","Check-out no Pantanal Hotel com malas no carro."],
+   ["07:45","<b>Chegada ao Projeto Salobra — não atrasar!</b> Recepção com café fresco e chipa paraguaia quentinha."],
+   ["08:15","Veículo pantaneiro até o porto, caminhada plana (~1 km), banho opcional no Rio Salobra e barco pelo encontro das águas."],
+   ["12:00","Almoço na Casa da Família Pantaneira (incluso)."],
+   ["13:30","Volta a Campo Grande (~200 km, ~2h30)."],
+   ["16:00","Check-in no <b>Brumado Hotel</b> (conf. 6395041030 · PIN 6032). Tarde livre."]
+  ],
+  stayBlk:[["🛌 Quarto 1 (triplo luxo)","Gera / Rafa / Ben — R$ 288,58 (no balcão)"],["🛌 Quarto 2 (standard)","Beta — R$ 257,66 (no balcão)"]],
+  meals:[["☕ Café","Incluso no hotel"],["🍽️ Almoço pantaneiro","Incluso no Salobra!"],["🍽️ Jantar de despedida","Livre na capital"]],
+  tip:{cls:"cold",html:"<b>Dica do Salobra:</b> tênis e calça comprida, boné e repelente. Casaco pequeno (pode ventar) e roupa de banho por baixo pro banho de rio."}
+ },
+
+ {n:24,dow:"Sexta",feat:false,color:"var(--tinta)",
+  title:"Retorno para Recife e devolução prática",
+  rez:"Check-out → devolução do carro → voo 09:55",
+  stay:"— (voo de volta)",
+  photo:null,emoji:"🛫",cap:"De volta pra casa",
+  route:{stops:["Brumado Hotel","Aeroporto CGR"],km:"~15 min",gmap:"https://www.google.com/maps/dir/?api=1&origin=Brumado+Hotel+Campo+Grande+MS&destination=Aeroporto+Internacional+de+Campo+Grande&travelmode=driving"},
+  prog:[
+   ["07:00","Café rápido e check-out dos dois quartos."],
+   ["07:30","<b>Devolução na Localiza</b> (aeroporto). Deixe a cadeirinha instalada no carro — a Amor de Mãe recolhe direto com a Localiza, sem estresse."],
+   ["08:00","Despacho de malas e raio-X."],
+   ["09:55","<b>Decolagem (LA 3177)</b>, conexão em Congonhas. Chegada em Recife às 23:45."]
+  ],
+  stayBlk:[],
+  meals:[["☕ Café","Incluso no Brumado"],["🍔 Almoço/lanche","Livre na conexão em SP"]],
+  tip:{cls:"eco",html:"Confira gavetas, tomadas e o cofre dos quartos antes de sair. Última olhada no carro pra não esquecer nada. 👋"}
+ }
+];
+
+/* ---------- COSTS DATA ---------- */
+var GRP={gera:{lab:"Gera / Rafa / Ben",cls:"grp-g"},beta:{lab:"Beta",cls:"grp-b"}};
+var SPLITLAB={gera_only:["100% Gera","grp-g"],beta_only:["100% Beta","grp-b"],prop:["3:1 (75/25)","grp-s"],equal:["50/50","grp-s"]};
+var EXP=[
+ {d:"Taxas de embarque · voos LATAM (Gera/Rafa/Ben)",v:296.79,payer:"gera",split:"gera_only"},
+ {d:"Brumado CG (ida) · triplo — Gera/Rafa/Ben",v:288.58,payer:"gera",split:"gera_only"},
+ {d:"Brumado CG (ida) · duplo — Beta",v:239.79,payer:"beta",split:"beta_only"},
+ {d:"Pousada Galeria Artes (Bonito) · superior — Gera",v:1455.30,payer:"gera",split:"gera_only"},
+ {d:"Pousada Galeria Artes (Bonito) · duplo — Beta",v:1212.30,payer:"beta",split:"beta_only"},
+ {d:"Pantanal Hotel (Miranda) · Gera/Rafa/Ben",v:740.00,payer:"gera",split:"gera_only"},
+ {d:"Pantanal Hotel (Miranda) · Beta",v:480.00,payer:"beta",split:"beta_only"},
+ {d:"Brumado CG (volta) · triplo — Gera/Rafa/Ben",v:288.58,payer:"gera",split:"gera_only"},
+ {d:"Brumado CG (volta) · duplo standard — Beta",v:257.66,payer:"beta",split:"beta_only"},
+ {d:"Buraco das Araras · Gera/Rafa/Ben",v:370.00,payer:"gera",split:"gera_only"},
+ {d:"Buraco das Araras · Beta (melhor idade)",v:150.00,payer:"gera",split:"beta_only"},
+ {d:"Flutuação Rio Sucuri · Gera/Rafa/Ben",v:966.00,payer:"gera",split:"gera_only"},
+ {d:"Flutuação Rio Sucuri · Beta",v:408.00,payer:"gera",split:"beta_only"},
+ {d:"Bio Park · Gera/Rafa/Ben",v:210.00,payer:"gera",split:"gera_only"},
+ {d:"Bio Park · Beta",v:88.00,payer:"gera",split:"beta_only"},
+ {d:"Trilhas Ceita Corê · Gera/Rafa/Ben",v:1160.00,payer:"gera",split:"gera_only"},
+ {d:"Trilhas Ceita Corê · Beta",v:435.00,payer:"gera",split:"beta_only"},
+ {d:"Flutuação Nascente Azul · Gera/Rafa/Ben",v:1153.80,payer:"gera",split:"gera_only"},
+ {d:"Flutuação Nascente Azul · Beta",v:512.00,payer:"gera",split:"beta_only"},
+ {d:"Day Use Fazenda San Francisco · Gera/Rafa/Ben",v:1176.00,payer:"gera",split:"gera_only"},
+ {d:"Day Use Fazenda San Francisco · Beta",v:438.00,payer:"gera",split:"beta_only"},
+ {d:"Projeto Salobra · sinal 40% (pago por Gera)",v:600.00,payer:"gera",split:"prop"},
+ {d:"Projeto Salobra · restante 60%",v:900.00,payer:"gera",split:"prop"},
+ {d:"Bioparque Pantanal CG · todos",v:0.00,payer:"gera",split:"equal"},
+ {d:"Aluguel SUV Localiza (7 diárias + seguros)",v:2774.03,payer:"gera",split:"equal"},
+ {d:"Cadeirinha Ben (Amor de Mãe) · sinal",v:88.00,payer:"gera",split:"gera_only"},
+ {d:"Cadeirinha Ben (Amor de Mãe) · restante",v:86.99,payer:"gera",split:"gera_only"}
+];
+var TRANSFERS=[508.00,1000.00,900.00]; // Beta -> Gera
+
+/* ---------- TASKS DATA ---------- */
+var CATS={
+ reservas:{lab:"Reservas & estadias",color:"#3d7ff2"},
+ fornecedores:{lab:"Agência & passeios",color:"#0e8388"},
+ compras:{lab:"Compras de viagem",color:"#c1912e"},
+ pagamentos:{lab:"Pagamentos",color:"#8b5cf6"}
+};
+var TASKS=[
+ {t:"Cadastrar o cartão no app da Localiza para a pré-autorização FAST (R$ 2.500)",c:"reservas",done:false},
+ {t:"Confirmar portão do Shopping Campo Grande aberto às 08:00 do dia 18/07",c:"reservas",done:true},
+ {t:"Confirmar estacionamento gratuito em todas as estadias",c:"reservas",done:true},
+ {t:"Instalar o app da Localiza no celular da Rafa (libera a FAST na vaga)",c:"reservas",done:false},
+ {t:"Retirar todos os vouchers físicos na Ygarapé ao chegar em Bonito (18/07)",c:"fornecedores",done:false},
+ {t:"Levar documento oficial com foto de todos (inclusive do Ben) em todos os passeios",c:"fornecedores",done:false},
+ {t:"Avisar o Projeto Salobra da chegada às 07:45 do dia 23/07",c:"fornecedores",done:true},
+ {t:"Cotar aluguel de câmera de ação (GoPro) com a Ygarapé para os dias de água",c:"fornecedores",done:false},
+ {t:"Combinar entrega da cadeirinha no pátio da Localiza às 23h de 17/07 (Rafa: 81-98984-8813)",c:"fornecedores",done:false},
+ {t:"Comprar camisetas UV de manga longa para todos (sem protetor na água cristalina)",c:"compras",done:false},
+ {t:"Comprar repelente de alta eficácia (icaridina) — essencial no Pantanal",c:"compras",done:false},
+ {t:"Comprar sapatilhas de neoprene confortáveis",c:"compras",done:false},
+ {t:"Conferir faturas das reservas de hotel feitas pelo Booking",c:"pagamentos",done:true},
+ {t:"Acompanhar o parcelamento (10x) do pacote de passeios da Ygarapé",c:"pagamentos",done:false},
+ {t:"Pagar o sinal de 40% (R$ 600) do Projeto Salobra via Pix",c:"pagamentos",done:true},
+ {t:"Pagar os 60% restantes (R$ 900) do Projeto Salobra até 13/07",c:"pagamentos",done:false,deadline:"até 13/07"},
+ {t:"Pagar o restante da cadeirinha do Ben (R$ 86,99) para a Amor de Mãe",c:"pagamentos",done:false},
+ {t:"Sinal da cadeirinha do Ben (R$ 88) pago por Gera via Pix",c:"pagamentos",done:true}
+];
+
+/* ---------- PACKING DATA ---------- */
+var PACK={
+ gera:[
+  {c:"🥾 Trilhas & natureza",items:[
+   ["Tênis/bota de caminhada amaciados (Araras e safári pedem fechado!)","2 pares"],
+   ["Calça comprida leve p/ trilha e safári","2 un cada"],
+   ["Camiseta UV manga longa (essencial na flutuação)","3 un cada"],
+   ["Meias de cano médio/alto (protegem nas trilhas)","4 pares cada"],
+   ["Boné, chapéu ou viseira","1 cada"]]},
+  {c:"🩱 Banho & flutuações",items:[
+   ["Roupa de banho (leve por baixo no Salobra!)","3 un cada"],
+   ["Sapatilha de neoprene p/ águas cristalinas","1 par cada"],
+   ["Capa estanque de celular p/ fotos na água","1 por adulto"],
+   ["Toalha de secagem rápida (microfibra)","2 un"]]},
+  {c:"🧥 Frio & noite (friagem!)",items:[
+   ["Casaco/corta-vento (madrugada de safári e Salobra)","1 cada"],
+   ["Moletom ou blusa de manga longa","1 cada"],
+   ["Touca/gorro leve p/ manhãs geladas","1 cada"],
+   ["Calça jeans/esportiva p/ jantares","2 cada"]]},
+  {c:"👕 Uso diário",items:[
+   ["Roupa íntima e meias de algodão","9 conj cada"],
+   ["Camiseta de algodão fresca","8 un cada"],
+   ["Short/bermuda leve","4 un cada"],
+   ["Pijama quentinho","1 cada"]]},
+  {c:"🧒 Ben (especiais 5 anos)",items:[
+   ["Boia de braço infantil","1 par"],
+   ["Protetor + repelente infantil","1 kit"],
+   ["Brinquedo/joguinho p/ o carro","2 itens"],
+   ["Farmacinha infantil (antitérmico, antialérgico, curativos)","1 estojo"]]},
+  {c:"🎒 Essenciais gerais",items:[
+   ["Repelente de icaridina + protetor solar (fora da água)","p/ o grupo"],
+   ["Documentos com foto de todos + cartões de reserva","obrigatório"],
+   ["Powerbank e cabos","1 kit"],
+   ["Sacos plásticos p/ roupa molhada","4–5"],
+   ["Garrafa de água reutilizável","1 cada"]]}
+ ],
+ beta:[
+  {c:"🥾 Trilhas & natureza",items:[
+   ["Tênis antiderrapante macio (Araras e Salobra)","1 par"],
+   ["Calça comprida leve e confortável","2 un"],
+   ["Camiseta UV manga longa","3 un"],
+   ["Chapéu de abas largas","1 un"]]},
+  {c:"🩱 Banho & flutuações",items:[
+   ["Roupa de banho confortável","2 un"],
+   ["Sapatilha de neoprene","1 par"],
+   ["Toalha leve de secagem rápida","1 un"]]},
+  {c:"🧥 Frio & noite (friagem!)",items:[
+   ["Casaco/cardigã p/ manhãs de safári e Salobra","1 un"],
+   ["Echarpe/lenço leve","1 un"],
+   ["Touca leve","1 un"],
+   ["Calça elegante p/ jantares","2 un"]]},
+  {c:"👜 Básicos & saúde",items:[
+   ["Roupa íntima e meias macias","9 conj"],
+   ["Camiseta manga curta fresca","6 un"],
+   ["Óculos de sol e de leitura com estojo","1 kit"],
+   ["Remédios de uso contínuo (bagagem de mão, embalagem original)","folgado"],
+   ["Pijama quentinho","1 un"]]}
+ ]
+};
+
+/* ================= RENDER ================= */
+var $=function(s,r){return (r||document).querySelector(s);};
+var brl=function(n){return "R$ "+n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});};
+
+/* --- days --- */
+function routeHTML(r){
+  if(!r) return "";
+  var chips="";
+  for(var i=0;i<r.stops.length;i++){
+    chips+='<span class="stop">'+r.stops[i]+'</span>';
+    if(i<r.stops.length-1) chips+='<span class="arr">→</span>';
+  }
+  return '<div class="route">'+chips+
+    '<a class="mapbtn" href="'+r.gmap+'" target="_blank" rel="noopener">📍 Abrir no Maps</a>'+
+    '<span class="km">'+r.km+'</span></div>';
+}
+function photoHTML(d){
+  if(!d.photo){
+    return '<div class="photo noimg"><span class="emoji">'+d.emoji+'</span>'+
+      '<div class="cap"><span>'+d.cap+'</span></div></div>';
+  }
+  var illus=d.illus?'<span class="illus">ilustrativa</span>':'';
+  return '<div class="photo"><img src="'+d.photo+'" alt="'+d.cap+'" loading="lazy" referrerpolicy="no-referrer" '+
+    'data-cap="'+d.cap+'" onclick="openLB(this)" '+
+    'onerror="this.closest(\'.photo\').classList.add(\'noimg\');this.closest(\'.photo\').insertAdjacentHTML(\'afterbegin\',\'<span class=&quot;emoji&quot;>'+d.emoji+'</span>\')">'+
+    '<div class="cap"><span>'+d.cap+'</span>'+illus+'</div></div>';
+}
+function renderDays(){
+  var html="";
+  DAYS.forEach(function(d,idx){
+    var prog=d.prog.map(function(p){return '<li><b>'+p[0]+':</b> '+p[1]+'</li>';}).join("");
+    var stayLines=d.stayBlk.map(function(s){return '<p>'+s[0]+' · '+s[1]+'</p>';}).join("");
+    var stay=d.stayBlk.length?('<div class="blk"><h5>Hospedagem</h5>'+stayLines+'</div>'):"";
+    var meals='<div class="blk"><h5>Refeições</h5>'+d.meals.map(function(m){return '<p>'+m[0]+' · '+m[1]+'</p>';}).join("")+'</div>';
+    var tip=d.tip?('<div class="tip '+d.tip.cls+'">'+d.tip.html+'</div>'):"";
+    var gallery="";
+    if(d.gallery){
+      gallery='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">'+
+        d.gallery.map(function(g){return '<img src="'+g+'" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:120px;object-fit:cover;border-radius:10px;cursor:zoom-in" data-cap="Fauna do Pantanal" onclick="openLB(this)" onerror="this.style.display=\'none\'">';}).join("")+
+        '</div>';
+    }
+    html+=''+
+    '<div class="day'+(d.feat?' feat':'')+'" id="day'+idx+'">'+
+      '<div class="node" style="background:'+d.color+'">'+d.n+'</div>'+
+      '<div class="day-head" onclick="toggleDay('+idx+')">'+
+        '<div class="dh-top">'+
+          '<div class="txt">'+
+            '<div class="dt">'+d.dow+' · '+d.n+'/07'+(d.badge?' · <span style=\'color:var(--barro)\'>'+d.badge+'</span>':'')+'</div>'+
+            '<h3>'+d.title+'</h3>'+
+            '<div class="rez">'+d.rez+'</div>'+
+          '</div>'+
+          '<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>'+
+        '</div>'+
+        '<div class="day-body">'+
+          photoHTML(d)+
+          '<div class="db-grid">'+
+            '<div class="prog"><h4>Programação do dia</h4>'+(d.route?routeHTML(d.route):"")+'<ul>'+prog+'</ul>'+gallery+'</div>'+
+            '<div class="side">'+stay+meals+tip+'</div>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  });
+  $("#river").innerHTML=html;
+}
+function toggleDay(i){$("#day"+i).classList.toggle("open");}
+
+/* --- costs --- */
+function renderCosts(){
+  var total=0,cotaG=0,cotaB=0,paidB=0;
+  var body="";
+  EXP.forEach(function(e){
+    total+=e.v;
+    var sg=0,sb=0;
+    if(e.split==="gera_only")sg=e.v;
+    else if(e.split==="beta_only")sb=e.v;
+    else if(e.split==="prop"){sg=e.v*0.75;sb=e.v*0.25;}
+    else if(e.split==="equal"){sg=e.v*0.5;sb=e.v*0.5;}
+    cotaG+=sg;cotaB+=sb;
+    if(e.payer==="beta")paidB+=e.v;
+    var sl=SPLITLAB[e.split];
+    body+='<tr><td>'+e.d+'</td><td class="val">'+brl(e.v)+'</td>'+
+      '<td><span class="mini '+GRP[e.payer].cls+'">'+GRP[e.payer].lab+'</span></td>'+
+      '<td><span class="mini '+sl[1]+'">'+sl[0]+'</span></td></tr>';
+  });
+  var transf=TRANSFERS.reduce(function(a,b){return a+b;},0);
+  var betaOwes=cotaB-paidB-transf; // quanto Beta ainda deve à Gera
+  $("#c-total").textContent=brl(total);
+  $("#c-total-cap").textContent="Somando tudo: hotéis, passeios, carro e cadeirinha.";
+  $("#c-gera").textContent=brl(cotaG);
+  $("#c-beta").textContent=brl(cotaB);
+  $("#c-transf").textContent=brl(transf);
+  $("#c-falta").textContent=brl(betaOwes);
+  $("#cost-body").innerHTML=body;
+  $("#c-story").innerHTML="A Gera adiantou os ingressos da Beta (melhor idade), a parte dela no Projeto Salobra e a metade do carro. "+
+    "A Beta já transferiu <b>"+brl(transf)+"</b> — o que cobre os passeios e o Salobra. "+
+    "Falta acertar cerca de <b>"+brl(betaOwes)+"</b>, referente principalmente à metade do aluguel do SUV, quando o carro for pago na retirada. "+
+    "As diárias de hotel cada grupo paga direto no balcão.";
+}
+
+/* --- tasks --- */
+function renderTasks(){
+  var pend=TASKS.filter(function(t){return !t.done && (t.deadline || t.c==="pagamentos" || t.t.indexOf("cadeirinha")>-1 || t.t.indexOf("Localiza")>-1);});
+  // build alert list: prioritize deadline + key pending
+  var alerts=[
+    {cd:"até 13/07",t:"Pagar os 60% restantes (R$ 900) do Projeto Salobra."},
+    {cd:"antes de ir",t:"Cadastrar cartão no app da Localiza (pré-autorização de R$ 2.500) e instalar o app no celular da Rafa."},
+    {cd:"17/07 · 23h",t:"Combinar a entrega da cadeirinha do Ben no pátio da Localiza (Amor de Mãe)."},
+    {cd:"na chegada",t:"Retirar os vouchers físicos na Ygarapé (18/07) e levar documento de todos."},
+    {cd:"pendente",t:"Pagar o restante da cadeirinha do Ben (R$ 86,99) para a Amor de Mãe."}
+  ];
+  $("#alert-list").innerHTML=alerts.map(function(a){return '<li><span class="cd">'+a.cd+'</span><span>'+a.t+'</span></li>';}).join("");
+
+  var cols="";
+  Object.keys(CATS).forEach(function(k){
+    var items=TASKS.filter(function(t){return t.c===k;});
+    var lis=items.map(function(t){
+      var y=t.done;
+      return '<div class="titem'+(y?' done':'')+'"><span class="st"><span class="tick '+(y?'y':'n')+'">'+(y?'✓':'')+'</span></span>'+
+        '<span class="txt">'+t.t+(t.deadline?' <b style="color:var(--barro)">('+t.deadline+')</b>':'')+'</span></div>';
+    }).join("");
+    var done=items.filter(function(t){return t.done;}).length;
+    cols+='<div class="card" style="padding:16px"><div class="tcol">'+
+      '<h3><span class="cdot" style="background:'+CATS[k].color+'"></span>'+CATS[k].lab+
+      ' <span style="margin-left:auto;font-size:11px;color:var(--tinta3);font-family:\'Space Mono\'">'+done+'/'+items.length+'</span></h3>'+
+      lis+'</div></div>';
+  });
+  $("#task-cols").innerHTML=cols;
+}
+
+/* --- packing --- */
+function renderPack(g){
+  var cats=PACK[g];
+  $("#mala-body").innerHTML=cats.map(function(c){
+    var its=c.items.map(function(i){return '<div class="pitem"><span>'+i[0]+'</span><span class="q">'+i[1]+'</span></div>';}).join("");
+    return '<div class="pcat"><h4>'+c.c+'</h4>'+its+'</div>';
+  }).join("");
+}
+
+/* --- tabs --- */
+document.querySelectorAll(".tab").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("on");});
+    document.querySelectorAll(".pane").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on");
+    $("#pane-"+b.dataset.tab).classList.add("on");
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+});
+/* --- mala seg --- */
+document.querySelectorAll("#mala-seg button").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll("#mala-seg button").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on");renderPack(b.dataset.g);
+  });
+});
+/* --- lightbox --- */
+function openLB(img){$("#lb-img").src=img.src;$("#lb-cap").textContent=img.dataset.cap||"";$("#lb").classList.add("on");}
+$("#lb").addEventListener("click",function(){this.classList.remove("on");});
+
+/* init */
+renderDays();renderCosts();renderTasks();renderPack("gera");
+document.getElementById("day1").classList.add("open"); // abre o 1º dia cheio (18/07)
+</script>
+</body>
+</html>
