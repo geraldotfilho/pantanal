@@ -804,10 +804,10 @@ function renderCosts(){
     else if(e.split==="beta_only")sb=e.v;
     else if(e.split==="prop"){sg=e.v*0.75;sb=e.v*0.25;}
     else if(e.split==="equal"){sg=e.v*0.5;sb=e.v*0.5;}
-    cotaG+=sg;cotaB+=sb;
     
     var isPaid = e.status === "paid";
     if(isPaid){
+      cotaG+=sg;cotaB+=sb;
       if(e.payer==="beta") paidB_Adiantado+=e.v;
       if(e.payer==="gera") paidG_Adiantado+=e.v;
     } else {
@@ -817,32 +817,36 @@ function renderCosts(){
     
     var sl=SPLITLAB[e.split];
     var statusBadge = isPaid ? 
-      '<span class="mini grp-g" style="margin-left:6px; background:#e6f4ea; color:#137333; border:1px solid #ceead6">✓ Pago</span>' : 
-      '<span class="mini grp-s" style="margin-left:6px; background:#fef7e0; color:#b06000; border:1px solid #feebc8">⏳ Pendente</span>';
+      '<span class="mini grp-g" style="margin-left:6px; background:#e6f4ea; color:#137333; border:1px solid #ceead6">&#10003; Pago</span>' : 
+      '<span class="mini grp-s" style="background:#fef7e0; color:#b06000; border:1px solid #feebc8; margin-bottom:2px">&#8987; Pendente</span>';
     
     var deadlineText = (!isPaid && e.deadline) ? 
-      '<div class="mini-dl" style="font-size:10px; color:#b06000; margin-top:2px">Prazo: '+e.deadline+'</div>' : '';
+      '<div class="mini-dl" style="font-size:10px; color:#b06000; margin-top:2px">'+e.deadline+'</div>' : '';
     
+    var payerContent = isPaid ? 
+      '<span class="mini '+GRP[e.payer].cls+'">'+GRP[e.payer].lab+'</span>' :
+      '<div style="display:flex; flex-direction:column; align-items:flex-start;">' + statusBadge + deadlineText + '</div>';
+
     body+='<tr class="'+(isPaid ? '' : 'pending-row')+'" style="'+(isPaid ? '' : 'color:#80868b; background:rgba(241,243,244,0.3)')+'">'+
-      '<td><div style="display:flex; flex-direction:column"><div>' + e.d + statusBadge + '</div>' + deadlineText + '</div></td>'+
+      '<td><div style="display:flex; flex-direction:column"><div>' + e.d + (isPaid ? statusBadge : '') + '</div></div></td>'+
       '<td class="val">'+brl(e.v)+'</td>'+
-      '<td><span class="mini '+GRP[e.payer].cls+'">'+GRP[e.payer].lab+'</span></td>'+
+      '<td>'+payerContent+'</td>'+
       '<td><span class="mini '+sl[1]+'">'+sl[0]+'</span></td></tr>';
   });
   
   var transf=TRANSFERS.reduce(function(a,b){return a+b;},0);
   
-  // Math
-  var paidG_Projetado = paidG_Adiantado + paidG_Pendente;
-  var saldoProjetado = paidG_Projetado - cotaG - transf; // se positivo, Beta deve a Gera
+  // Math: Acerto considera Apenas valores já pagos!
+  var saldoProjetado = paidG_Adiantado - cotaG - transf; // se positivo, Beta deve a Gera
   
   var desG = paidG_Adiantado - transf;
   var desB = paidB_Adiantado + transf;
-  var faltaG = paidG_Pendente - saldoProjetado;
-  var faltaB = paidB_Pendente + saldoProjetado;
+  
+  var faltaG = paidG_Pendente;
+  var faltaB = paidB_Pendente;
   
   $("#c-total").textContent=brl(total);
-  $("#c-total-cap").textContent="Somando tudo: hotéis, passeios, carro e cadeirinha.";
+  $("#c-total-cap").textContent="Somando tudo (pagos e pendentes).";
   $("#c-gera").textContent=brl(cotaG);
   $("#c-beta").textContent=brl(cotaB);
   $("#c-transf").textContent=brl(transf);
@@ -858,20 +862,17 @@ function renderCosts(){
   
   var acertoStory = "";
   if (saldoProjetado > 0) {
-    acertoStory = "Beta deve fazer Pix para Gera de <b>" + brl(saldoProjetado) + "</b> ao final da viagem. ";
+    acertoStory = "Beta deve fazer Pix para Gera de <b>" + brl(saldoProjetado) + "</b> referente ao que j&aacute; foi pago. ";
   } else if (saldoProjetado < 0) {
-    acertoStory = "Gera deve transferir/devolver para Beta o valor de <b>" + brl(Math.abs(saldoProjetado)) + "</b> ao final da viagem. ";
+    acertoStory = "Gera deve transferir/devolver para Beta o valor de <b>" + brl(Math.abs(saldoProjetado)) + "</b> referente ao que j&aacute; foi pago. ";
   } else {
-    acertoStory = "Contas 100% equilibradas ao final! ";
+    acertoStory = "Contas parciais 100% equilibradas at&eacute; o momento! ";
   }
   
-  $("#c-story").innerHTML="<b>Fluxo de Caixa dos Adiantamentos:</b> Gera adiantou os passeios e a cadeirinha, e Beta adiantou os quartos da Pousada Galeria Artes. " +
-    "Beta já transferiu <b>"+brl(transf)+"</b> para Gera. " +
-    "No local, Beta pagará as suas diárias pendentes (Brumado CG + Pantanal Hotel Miranda = " + brl(paidB_Pendente) + "), e Gera pagará as diárias dele, a Localiza e o restante do Salobra (" + brl(paidG_Pendente) + "). " +
-    "Ao final, o acerto de contas prevê: " + acertoStory + 
-    "Os valores detalhados de desembolso por grupo estão resumidos acima.";
+  $("#c-story").innerHTML="<b>Acerto Parcial (apenas valores j&aacute; pagos):</b> " + acertoStory + 
+    "Beta j&aacute; transferiu <b>"+brl(transf)+"</b> para Gera. " +
+    "Os gastos pendentes (" + brl(paidG_Pendente + paidB_Pendente) + ") n&atilde;o entram no c&aacute;lculo deste acerto final, devendo ser assumidos por cada um no local ou conforme o prazo.";
 }
-
 function renderTasks(){
   var pend=TASKS.filter(function(t){return !t.done && (t.deadline || t.c==="pagamentos" || t.t.indexOf("cadeirinha")>-1 || t.t.indexOf("Localiza")>-1);});
   // build alert list: prioritize deadline + key pending
