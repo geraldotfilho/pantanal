@@ -1,0 +1,251 @@
+﻿#!/usr/bin/env node
+// protect.js — Criptografa index_original.html com AES-256-GCM
+// Uso: node protect.js
+// Gera index.html protegido com tela de login
+
+const fs = require('fs');
+const crypto = require('crypto');
+const readline = require('readline');
+const path = require('path');
+
+const SRC = path.join(__dirname, 'index_original.html');
+const OUT = path.join(__dirname, 'index.html');
+
+function askPassword() {
+  return new Promise((resolve) => {
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    process.stdout.write('Digite a senha para proteger o site: ');
+    rl.question('', (ans) => { rl.close(); resolve(ans.trim()); });
+  });
+}
+
+function encrypt(plaintext, password) {
+  const salt = crypto.randomBytes(32);
+  const iv   = crypto.randomBytes(12);
+  const key  = crypto.pbkdf2Sync(password, salt, 600000, 32, 'sha256');
+  const cipher = crypto.createCipheriv('aes-256-gcm', key, iv);
+  const enc = Buffer.concat([cipher.update(plaintext, 'utf8'), cipher.final()]);
+  const tag = cipher.getAuthTag();
+  return { salt: salt.toString('hex'), iv: iv.toString('hex'), ct: enc.toString('base64'), tag: tag.toString('hex') };
+}
+
+function buildHTML(payload) {
+  return `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Expedição MS 2026 — Acesso Restrito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  background:#0a2520;
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%,rgba(14,131,136,.30),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%,rgba(31,91,63,.35),transparent 60%),
+    linear-gradient(180deg,#0a2520 0%,#0d3a34 40%,#092d36 100%);
+}
+/* floating particles */
+body::after{
+  content:"";position:fixed;inset:0;z-index:0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 20%, rgba(143,230,208,.25) 50%, transparent 50%),
+    radial-gradient(1px 1px at 30% 65%, rgba(143,230,208,.18) 50%, transparent 50%),
+    radial-gradient(2px 2px at 55% 15%, rgba(95,168,199,.20) 50%, transparent 50%),
+    radial-gradient(1px 1px at 70% 45%, rgba(143,230,208,.15) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 85% 75%, rgba(95,168,199,.22) 50%, transparent 50%),
+    radial-gradient(1px 1px at 45% 85%, rgba(143,230,208,.12) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 15% 55%, rgba(95,168,199,.18) 50%, transparent 50%);
+  animation:drift 25s ease-in-out infinite alternate;
+}
+@keyframes drift{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(-8px,12px) scale(1.05)}
+  100%{transform:translate(5px,-8px) scale(1)}
+}
+.login-card{
+  position:relative;z-index:1;
+  width:min(420px,92vw);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  padding:44px 36px 38px;
+  backdrop-filter:blur(20px);
+  box-shadow:
+    0 4px 60px rgba(0,0,0,.35),
+    0 1px 0 rgba(255,255,255,.08) inset;
+  text-align:center;
+  animation:cardIn .6s cubic-bezier(.16,1,.3,1);
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.lock-icon{
+  width:56px;height:56px;margin:0 auto 20px;
+  background:linear-gradient(135deg,#0e8388,#1f5b3f);
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(14,131,136,.35);
+}
+.lock-icon svg{width:26px;height:26px;fill:none;stroke:#8fe6d0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.login-card h1{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:26px;font-weight:800;letter-spacing:-.02em;
+  line-height:1.15;margin-bottom:6px;
+}
+.login-card h1 span{color:#8fe6d0}
+.login-card .sub{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:28px;line-height:1.5}
+.field{position:relative;margin-bottom:16px;text-align:left}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+.field input{
+  width:100%;padding:14px 46px 14px 16px;
+  background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.14);
+  border-radius:14px;color:#fff;font-size:15px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  outline:none;transition:.2s;
+}
+.field input::placeholder{color:rgba(255,255,255,.3)}
+.field input:focus{border-color:#0e8388;background:rgba(14,131,136,.10);box-shadow:0 0 0 3px rgba(14,131,136,.18)}
+.toggle-vis{
+  position:absolute;right:14px;top:38px;
+  background:none;border:none;cursor:pointer;padding:4px;
+  color:rgba(255,255,255,.4);transition:.2s;
+}
+.toggle-vis:hover{color:rgba(255,255,255,.7)}
+.toggle-vis svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.remember{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:13px;color:rgba(255,255,255,.55);cursor:pointer}
+.remember input{accent-color:#0e8388;width:16px;height:16px;cursor:pointer}
+.btn{
+  width:100%;padding:15px;border:none;border-radius:14px;
+  background:linear-gradient(135deg,#0e8388,#1f5b3f);
+  color:#fff;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;font-weight:700;cursor:pointer;
+  transition:.25s;position:relative;overflow:hidden;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(14,131,136,.4)}
+.btn:active{transform:translateY(0)}
+.btn .spinner{display:none;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;margin:0 auto}
+.btn.loading .label{visibility:hidden}
+.btn.loading .spinner{display:block;position:absolute;top:50%;left:50%;margin:-10px 0 0 -10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-msg{
+  margin-top:14px;padding:12px;border-radius:12px;
+  background:rgba(193,68,14,.15);border:1px solid rgba(193,68,14,.3);
+  color:#e0764a;font-size:13px;font-weight:600;
+  display:none;animation:shake .4s ease;
+}
+@keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(3px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
+.footer{margin-top:24px;font-size:11px;color:rgba(255,255,255,.25)}
+.footer svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;vertical-align:-2px;margin-right:3px}
+</style>
+</head>
+<body>
+<div class="login-card">
+  <div class="lock-icon">
+    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16.5" r="1.5"/></svg>
+  </div>
+  <h1>Expedição <span>MS 2026</span></h1>
+  <p class="sub">Este conteúdo é protegido.<br>Digite a senha para acessar o roteiro da viagem.</p>
+  <form id="login-form" autocomplete="off">
+    <div class="field">
+      <label>Senha de acesso</label>
+      <input type="password" id="pwd" placeholder="Digite a senha compartilhada" autofocus>
+      <button type="button" class="toggle-vis" id="toggle-vis" aria-label="Mostrar senha">
+        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+    <label class="remember"><input type="checkbox" id="remember"> Lembrar neste dispositivo</label>
+    <button type="submit" class="btn" id="submit-btn"><span class="label">Entrar</span><span class="spinner"></span></button>
+    <div class="error-msg" id="error-msg">Senha incorreta. Tente novamente.</div>
+  </form>
+  <div class="footer">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Protegido com criptografia AES-256
+  </div>
+</div>
+<script id="encrypted-payload" type="application/octet-stream">${JSON.stringify(payload)}</script>
+<script>
+(function(){
+  var saved=localStorage.getItem('_exp_ms_key');
+  if(saved){document.getElementById('pwd').value=saved;document.getElementById('remember').checked=true;tryDecrypt(saved)}
+  document.getElementById('toggle-vis').addEventListener('click',function(){
+    var inp=document.getElementById('pwd');
+    inp.type=inp.type==='password'?'text':'password';
+  });
+  document.getElementById('login-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var pw=document.getElementById('pwd').value;
+    if(!pw)return;
+    tryDecrypt(pw);
+  });
+  function tryDecrypt(pw){
+    var btn=document.getElementById('submit-btn');
+    btn.classList.add('loading');
+    document.getElementById('error-msg').style.display='none';
+    setTimeout(function(){_decrypt(pw,btn)},80);
+  }
+  function hexToBytes(h){var b=new Uint8Array(h.length/2);for(var i=0;i<h.length;i+=2)b[i/2]=parseInt(h.substr(i,2),16);return b}
+  function _decrypt(pw,btn){
+    try{
+      var data=JSON.parse(document.getElementById('encrypted-payload').textContent);
+      var salt=hexToBytes(data.salt);
+      var iv=hexToBytes(data.iv);
+      var tag=hexToBytes(data.tag);
+      var ct=Uint8Array.from(atob(data.ct),function(c){return c.charCodeAt(0)});
+      // Combine ct + tag for Web Crypto (GCM expects them concatenated)
+      var combined=new Uint8Array(ct.length+tag.length);
+      combined.set(ct);combined.set(tag,ct.length);
+      crypto.subtle.importKey('raw',new TextEncoder().encode(pw),{name:'PBKDF2'},false,['deriveKey']).then(function(base){
+        return crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:600000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+      }).then(function(key){
+        return crypto.subtle.decrypt({name:'AES-GCM',iv:iv},key,combined);
+      }).then(function(plain){
+        var html=new TextDecoder().decode(plain);
+        if(document.getElementById('remember').checked)localStorage.setItem('_exp_ms_key',pw);
+        else localStorage.removeItem('_exp_ms_key');
+        document.open();document.write(html);document.close();
+      }).catch(function(){
+        btn.classList.remove('loading');
+        document.getElementById('error-msg').style.display='block';
+        localStorage.removeItem('_exp_ms_key');
+      });
+    }catch(e){
+      btn.classList.remove('loading');
+      document.getElementById('error-msg').style.display='block';
+    }
+  }
+})();
+</script>
+</body>
+</html>`;
+}
+
+async function main() {
+  if (!fs.existsSync(SRC)) {
+    console.error('ERRO: Arquivo ' + SRC + ' não encontrado.');
+    console.error('Crie o arquivo index_original.html com o conteúdo original do site.');
+    process.exit(1);
+  }
+  const password = await askPassword();
+  if (!password) { console.error('Senha não pode ser vazia.'); process.exit(1); }
+  console.log('\nCriptografando...');
+  const html = fs.readFileSync(SRC, 'utf8');
+  const payload = encrypt(html, password);
+  const protectedHTML = buildHTML(payload);
+  fs.writeFileSync(OUT, protectedHTML, 'utf8');
+  console.log('✓ index.html protegido gerado com sucesso! (' + Math.round(protectedHTML.length/1024) + ' KB)');
+  console.log('✓ Faça deploy com: git add . && git commit -m "proteger site" && git push');
+}
+
+main();

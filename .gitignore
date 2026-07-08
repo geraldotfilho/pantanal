@@ -1,0 +1,5 @@
+﻿# Arquivos que NAO devem ser publicados
+index_original.html
+.password
+_payload.json
+_payload.tmp
