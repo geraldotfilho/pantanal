@@ -16,7 +16,6 @@ if (-not (Test-Path $srcPath)) {
     exit 1
 }
 
-# Resolve password: parameter > .password file > interactive prompt
 if (-not $Password) {
     if (Test-Path $pwdFile) {
         $Password = (Get-Content $pwdFile -Raw -Encoding UTF8).Trim()
@@ -35,7 +34,10 @@ $rng = New-Object System.Security.Cryptography.RNGCryptoServiceProvider
 $salt = New-Object byte[] 32; $iv = New-Object byte[] 16
 $rng.GetBytes($salt); $rng.GetBytes($iv)
 
-$deriveBytes = New-Object System.Security.Cryptography.Rfc2898DeriveBytes($Password, $salt, 600000)
+# PBKDF2 com SHA-256 (deve ser explicito; o padrao e SHA-1)
+$deriveBytes = New-Object System.Security.Cryptography.Rfc2898DeriveBytes(
+    $Password, $salt, 600000, [System.Security.Cryptography.HashAlgorithmName]::SHA256
+)
 $derived = $deriveBytes.GetBytes(64)
 $aesKey = $derived[0..31]; $hmacKey = $derived[32..63]
 
