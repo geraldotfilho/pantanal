@@ -215,6 +215,9 @@ td.val{font-family:'Space Mono';font-weight:700;color:var(--tinta);white-space:n
 footer{border-top:1px solid var(--linha);padding:26px 18px 40px;text-align:center;color:var(--tinta3);font-size:12px}
 footer b{color:var(--tinta2)}
 .heart{color:var(--barro)}
+
+   .split-row-sub{display:flex;justify-content:space-between;font-size:11px;color:var(--tinta3);padding:2px 0}
+   .split-row-sub span span{font-family:'Space Mono';font-weight:700}
 </style>
 </head>
 <body>
@@ -319,9 +322,15 @@ footer b{color:var(--tinta2)}
     </div>
     <div class="card mcard">
       <div class="k">Cota final de cada grupo</div>
-      <div class="split-row" style="margin-top:10px"><span>👨‍👩‍👦 Gera / Rafa / Ben</span><b id="c-gera">—</b></div>
-      <div class="split-row"><span>👵 Beta</span><b id="c-beta">—</b></div>
-      <div class="cap">Já contando hotéis, passeios, carro e cadeirinha.</div>
+      <div class="group-cost-block" style="margin-top:10px; border-bottom: 1px solid var(--linha); padding-bottom:8px">
+        <div class="split-row"><span>👨‍👩‍👦 Gera / Rafa / Ben</span><b id="c-gera">—</b></div>
+        <div class="split-row-sub"><span>Já desembolsou: <span id="c-des-gera">—</span></span><span>Falta: <span id="c-falta-gera">—</span></span></div>
+      </div>
+      <div class="group-cost-block" style="margin-top:8px">
+        <div class="split-row"><span>👵 Beta</span><b id="c-beta">—</b></div>
+        <div class="split-row-sub"><span>Já desembolsou: <span id="c-des-beta">—</span></span><span>Falta: <span id="c-falta-beta">—</span></span></div>
+      </div>
+      <div class="cap" style="margin-top:8px">Cota total já considerando hotéis, passeios, carro e cadeirinha.</div>
     </div>
     <div class="card mcard settle">
       <div class="k">Acerto final</div>
@@ -594,35 +603,35 @@ var DAYS = [
 
 /* ---------- COSTS DATA ---------- */
 var GRP={gera:{lab:"Gera / Rafa / Ben",cls:"grp-g"},beta:{lab:"Beta",cls:"grp-b"}};
-var SPLITLAB={gera_only:["100% Gera","grp-g"],beta_only:["100% Beta","grp-b"],prop:["3:1 (75/25)","grp-s"],equal:["50/50","grp-s"]};
+var SPLITLAB={gera_only:["100% Gera/Rafa/Ben","grp-g"],beta_only:["100% Beta","grp-b"],prop:["3:1 (75/25)","grp-s"],equal:["50/50","grp-s"]};
 var EXP=[
- {d:"Taxas de embarque · voos LATAM (Gera/Rafa/Ben)",v:296.79,payer:"gera",split:"gera_only"},
- {d:"Brumado CG (ida) · triplo — Gera/Rafa/Ben",v:288.58,payer:"gera",split:"gera_only"},
- {d:"Brumado CG (ida) · duplo — Beta",v:239.79,payer:"beta",split:"beta_only"},
- {d:"Pousada Galeria Artes (Bonito) · superior — Gera",v:1455.30,payer:"gera",split:"gera_only"},
- {d:"Pousada Galeria Artes (Bonito) · duplo — Beta",v:1212.30,payer:"beta",split:"beta_only"},
- {d:"Pantanal Hotel (Miranda) · Gera/Rafa/Ben",v:740.00,payer:"gera",split:"gera_only"},
- {d:"Pantanal Hotel (Miranda) · Beta",v:480.00,payer:"beta",split:"beta_only"},
- {d:"Brumado CG (volta) · triplo — Gera/Rafa/Ben",v:288.58,payer:"gera",split:"gera_only"},
- {d:"Brumado CG (volta) · duplo standard — Beta",v:257.66,payer:"beta",split:"beta_only"},
- {d:"Buraco das Araras · Gera/Rafa/Ben",v:370.00,payer:"gera",split:"gera_only"},
- {d:"Buraco das Araras · Beta (melhor idade)",v:150.00,payer:"gera",split:"beta_only"},
- {d:"Flutuação Rio Sucuri · Gera/Rafa/Ben",v:966.00,payer:"gera",split:"gera_only"},
- {d:"Flutuação Rio Sucuri · Beta",v:408.00,payer:"gera",split:"beta_only"},
- {d:"Bio Park · Gera/Rafa/Ben",v:210.00,payer:"gera",split:"gera_only"},
- {d:"Bio Park · Beta",v:88.00,payer:"gera",split:"beta_only"},
- {d:"Trilhas Ceita Corê · Gera/Rafa/Ben",v:1160.00,payer:"gera",split:"gera_only"},
- {d:"Trilhas Ceita Corê · Beta",v:435.00,payer:"gera",split:"beta_only"},
- {d:"Flutuação Nascente Azul · Gera/Rafa/Ben",v:1153.80,payer:"gera",split:"gera_only"},
- {d:"Flutuação Nascente Azul · Beta",v:512.00,payer:"gera",split:"beta_only"},
- {d:"Day Use Fazenda San Francisco · Gera/Rafa/Ben",v:1176.00,payer:"gera",split:"gera_only"},
- {d:"Day Use Fazenda San Francisco · Beta",v:438.00,payer:"gera",split:"beta_only"},
- {d:"Projeto Salobra · sinal 40% (pago por Gera)",v:600.00,payer:"gera",split:"prop"},
- {d:"Projeto Salobra · restante 60%",v:900.00,payer:"gera",split:"prop"},
- {d:"Bioparque Pantanal CG · todos",v:0.00,payer:"gera",split:"equal"},
- {d:"Aluguel SUV Localiza (7 diárias + seguros)",v:2774.03,payer:"gera",split:"equal"},
- {d:"Cadeirinha Ben (Amor de Mãe) · sinal",v:88.00,payer:"gera",split:"gera_only"},
- {d:"Cadeirinha Ben (Amor de Mãe) · restante",v:86.99,payer:"gera",split:"gera_only"}
+ {d:"Taxas de embarque · voos LATAM (Gera/Rafa/Ben)",v:296.79,payer:"gera",split:"gera_only",status:"paid",deadline:""},
+ {d:"Brumado CG (ida) · triplo — Gera/Rafa/Ben",v:288.58,payer:"gera",split:"gera_only",status:"pending",deadline:"No check-in (17/07)"},
+ {d:"Brumado CG (ida) · duplo — Beta",v:239.79,payer:"beta",split:"beta_only",status:"pending",deadline:"No check-in (17/07)"},
+ {d:"Pousada Galeria Artes (Bonito) · superior — Gera",v:1455.30,payer:"beta",split:"gera_only",status:"paid",deadline:""},
+ {d:"Pousada Galeria Artes (Bonito) · duplo — Beta",v:1212.30,payer:"beta",split:"beta_only",status:"paid",deadline:""},
+ {d:"Pantanal Hotel (Miranda) · Gera/Rafa/Ben",v:740.00,payer:"gera",split:"gera_only",status:"pending",deadline:"No check-in (21/07)"},
+ {d:"Pantanal Hotel (Miranda) · Beta",v:480.00,payer:"beta",split:"beta_only",status:"pending",deadline:"No check-in (21/07)"},
+ {d:"Brumado CG (volta) · triplo — Gera/Rafa/Ben",v:288.58,payer:"gera",split:"gera_only",status:"pending",deadline:"No check-in (23/07)"},
+ {d:"Brumado CG (volta) · duplo standard — Beta",v:257.66,payer:"beta",split:"beta_only",status:"pending",deadline:"No check-in (23/07)"},
+ {d:"Buraco das Araras · Gera/Rafa/Ben",v:370.00,payer:"gera",split:"gera_only",status:"paid",deadline:""},
+ {d:"Buraco das Araras · Beta (melhor idade)",v:150.00,payer:"gera",split:"beta_only",status:"paid",deadline:""},
+ {d:"Flutuação Rio Sucuri · Gera/Rafa/Ben",v:966.00,payer:"gera",split:"gera_only",status:"paid",deadline:""},
+ {d:"Flutuação Rio Sucuri · Beta",v:408.00,payer:"gera",split:"beta_only",status:"paid",deadline:""},
+ {d:"Bio Park · Gera/Rafa/Ben",v:210.00,payer:"gera",split:"gera_only",status:"paid",deadline:""},
+ {d:"Bio Park · Beta",v:88.00,payer:"gera",split:"beta_only",status:"paid",deadline:""},
+ {d:"Trilhas Ceita Corê · Gera/Rafa/Ben",v:1160.00,payer:"gera",split:"gera_only",status:"paid",deadline:""},
+ {d:"Trilhas Ceita Corê · Beta",v:435.00,payer:"gera",split:"beta_only",status:"paid",deadline:""},
+ {d:"Flutuação Nascente Azul · Gera/Rafa/Ben",v:1153.80,payer:"gera",split:"gera_only",status:"paid",deadline:""},
+ {d:"Flutuação Nascente Azul · Beta",v:512.00,payer:"gera",split:"beta_only",status:"paid",deadline:""},
+ {d:"Day Use Fazenda San Francisco · Gera/Rafa/Ben",v:1176.00,payer:"gera",split:"gera_only",status:"paid",deadline:""},
+ {d:"Day Use Fazenda San Francisco · Beta",v:438.00,payer:"gera",split:"beta_only",status:"paid",deadline:""},
+ {d:"Projeto Salobra · sinal 40% (pago por Gera)",v:600.00,payer:"gera",split:"prop",status:"paid",deadline:""},
+ {d:"Projeto Salobra · restante 60%",v:900.00,payer:"gera",split:"prop",status:"pending",deadline:"Até 13/07"},
+ {d:"Bioparque Pantanal CG · todos",v:0.00,payer:"gera",split:"equal",status:"paid",deadline:""},
+ {d:"Aluguel SUV Localiza (7 diárias + seguros)",v:2774.03,payer:"gera",split:"equal",status:"pending",deadline:"Na retirada (17/07)"},
+ {d:"Cadeirinha Ben (Amor de Mãe) · sinal",v:88.00,payer:"gera",split:"gera_only",status:"paid",deadline:""},
+ {d:"Cadeirinha Ben (Amor de Mãe) · restante",v:86.99,payer:"gera",split:"gera_only",status:"pending",deadline:"Na entrega (17/07)"}
 ];
 var TRANSFERS=[508.00,1000.00,900.00]; // Beta -> Gera
 
@@ -783,7 +792,9 @@ function toggleDay(i){$("#day"+i).classList.toggle("open");}
 
 /* --- costs --- */
 function renderCosts(){
-  var total=0,cotaG=0,cotaB=0,paidB=0;
+  var total=0,cotaG=0,cotaB=0;
+  var paidG_Adiantado=0, paidB_Adiantado=0;
+  var paidG_Pendente=0, paidB_Pendente=0;
   var body="";
   EXP.forEach(function(e){
     total+=e.v;
@@ -793,28 +804,73 @@ function renderCosts(){
     else if(e.split==="prop"){sg=e.v*0.75;sb=e.v*0.25;}
     else if(e.split==="equal"){sg=e.v*0.5;sb=e.v*0.5;}
     cotaG+=sg;cotaB+=sb;
-    if(e.payer==="beta")paidB+=e.v;
+    
+    var isPaid = e.status === "paid";
+    if(isPaid){
+      if(e.payer==="beta") paidB_Adiantado+=e.v;
+      if(e.payer==="gera") paidG_Adiantado+=e.v;
+    } else {
+      if(e.payer==="beta") paidB_Pendente+=e.v;
+      if(e.payer==="gera") paidG_Pendente+=e.v;
+    }
+    
     var sl=SPLITLAB[e.split];
-    body+='<tr><td>'+e.d+'</td><td class="val">'+brl(e.v)+'</td>'+
+    var statusBadge = isPaid ? 
+      '<span class="mini grp-g" style="margin-left:6px; background:#e6f4ea; color:#137333; border:1px solid #ceead6">✓ Pago</span>' : 
+      '<span class="mini grp-s" style="margin-left:6px; background:#fef7e0; color:#b06000; border:1px solid #feebc8">⏳ Pendente</span>';
+    
+    var deadlineText = (!isPaid && e.deadline) ? 
+      '<div class="mini-dl" style="font-size:10px; color:#b06000; margin-top:2px">Prazo: '+e.deadline+'</div>' : '';
+    
+    body+='<tr class="'+(isPaid ? '' : 'pending-row')+'" style="'+(isPaid ? '' : 'color:#80868b; background:rgba(241,243,244,0.3)')+'">'+
+      '<td><div style="display:flex; flex-direction:column"><div>' + e.d + statusBadge + '</div>' + deadlineText + '</div></td>'+
+      '<td class="val">'+brl(e.v)+'</td>'+
       '<td><span class="mini '+GRP[e.payer].cls+'">'+GRP[e.payer].lab+'</span></td>'+
       '<td><span class="mini '+sl[1]+'">'+sl[0]+'</span></td></tr>';
   });
+  
   var transf=TRANSFERS.reduce(function(a,b){return a+b;},0);
-  var betaOwes=cotaB-paidB-transf; // quanto Beta ainda deve à Gera
+  
+  // Math
+  var paidG_Projetado = paidG_Adiantado + paidG_Pendente;
+  var saldoProjetado = paidG_Projetado - cotaG - transf; // se positivo, Beta deve a Gera
+  
+  var desG = paidG_Adiantado - transf;
+  var desB = paidB_Adiantado + transf;
+  var faltaG = paidG_Pendente - saldoProjetado;
+  var faltaB = paidB_Pendente + saldoProjetado;
+  
   $("#c-total").textContent=brl(total);
   $("#c-total-cap").textContent="Somando tudo: hotéis, passeios, carro e cadeirinha.";
   $("#c-gera").textContent=brl(cotaG);
   $("#c-beta").textContent=brl(cotaB);
   $("#c-transf").textContent=brl(transf);
-  $("#c-falta").textContent=brl(betaOwes);
+  $("#c-falta").textContent=brl(Math.abs(saldoProjetado));
+  
+  // Update new group-wise fields
+  $("#c-des-gera").textContent=brl(desG);
+  $("#c-falta-gera").textContent=brl(faltaG);
+  $("#c-des-beta").textContent=brl(desB);
+  $("#c-falta-beta").textContent=brl(faltaB);
+  
   $("#cost-body").innerHTML=body;
-  $("#c-story").innerHTML="A Gera adiantou os ingressos da Beta (melhor idade), a parte dela no Projeto Salobra e a metade do carro. "+
-    "A Beta já transferiu <b>"+brl(transf)+"</b> — o que cobre os passeios e o Salobra. "+
-    "Falta acertar cerca de <b>"+brl(betaOwes)+"</b>, referente principalmente à metade do aluguel do SUV, quando o carro for pago na retirada. "+
-    "As diárias de hotel cada grupo paga direto no balcão.";
+  
+  var acertoStory = "";
+  if (saldoProjetado > 0) {
+    acertoStory = "A Beta deve fazer Pix para a Gera de <b>" + brl(saldoProjetado) + "</b> ao final da viagem. ";
+  } else if (saldoProjetado < 0) {
+    acertoStory = "A Gera deve transferir/devolver para a Beta o valor de <b>" + brl(Math.abs(saldoProjetado)) + "</b> ao final da viagem. ";
+  } else {
+    acertoStory = "Contas 100% equilibradas ao final! ";
+  }
+  
+  $("#c-story").innerHTML="<b>Fluxo de Caixa dos Adiantamentos:</b> A Gera adiantou os passeios e a cadeirinha, e a Beta adiantou os quartos da Pousada Galeria Artes. " +
+    "A Beta já transferiu <b>"+brl(transf)+"</b> para a Gera. " +
+    "No local, a Beta pagará as suas diárias pendentes (Brumado CG + Pantanal Hotel Miranda = " + brl(paidB_Pendente) + "), e a Gera pagará as diárias dela, a Localiza e o restante do Salobra (" + brl(paidG_Pendente) + "). " +
+    "Ao final, o acerto de contas prevê: " + acertoStory + 
+    "Os valores detalhados de desembolso por grupo estão resumidos acima.";
 }
 
-/* --- tasks --- */
 function renderTasks(){
   var pend=TASKS.filter(function(t){return !t.done && (t.deadline || t.c==="pagamentos" || t.t.indexOf("cadeirinha")>-1 || t.t.indexOf("Localiza")>-1);});
   // build alert list: prioritize deadline + key pending
