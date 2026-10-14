@@ -1,4 +1,4 @@
-﻿# Regras para Agentes de IA - Repositorio Pantanal
+# Regras para Agentes de IA - Repositorio Pantanal
 
 ## Arquitetura de Protecao por Senha
 
@@ -17,6 +17,8 @@ O conteudo real do site existe apenas em `index_original.html`, que **nunca deve
 | `.password` | Contem a senha de criptografia (texto plano, 1 linha) | NAO (.gitignore) |
 | `.gitignore` | Impede publicacao de arquivos sensiveis | SIM |
 | `AGENTS.md` | Este arquivo de regras | SIM |
+| `protect_page.js` | Mesma criptografia do `protect.ps1`, em Node (`node protect_page.js [pasta]`) | SIM |
+| `cariri/` | Roteiro do Cariri, publicado em `/cariri/` (mesma estrutura: `index_original.html`, `.password`, `login_template.html`, `index.html`) | so `index.html` e `login_template.html` |
 
 ## REGRA CRITICA: Seguranca da Senha
 
@@ -59,6 +61,17 @@ git push origin main
 Apos o push, o site estara acessivel em GitHub Pages. Para verificar:
 - Acessar a URL do site -> deve mostrar a tela de login
 - Digitar a senha -> deve mostrar o conteudo atualizado
+
+### 5. Outros roteiros (subpastas)
+
+Cada viagem extra fica numa subpasta com os mesmos arquivos (ex.: `cariri/`), acessivel em `https://geraldotfilho.github.io/pantanal/<pasta>/`.
+A senha de cada roteiro fica no `.password` da propria subpasta (ignorado pelo git). Para gerar o arquivo criptografado:
+
+```bash
+node protect_page.js cariri
+```
+
+O `login_template.html` de cada subpasta usa uma chave propria no `localStorage` (ex.: `_exp_cariri_key`), para nao conflitar com o "Lembrar" do Pantanal.
 
 ## Informacoes Tecnicas
 
